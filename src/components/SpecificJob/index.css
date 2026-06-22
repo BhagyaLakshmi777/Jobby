@@ -1,0 +1,136 @@
+.job-logo {
+  height: 100%;
+  width: 100%;
+}
+.job-url {
+ 
+  height: 40px;
+  width: 40px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.specific-job-container {
+  background-color: #475569;
+  border-radius: 8px;
+
+  width: 100%;
+  margin-bottom: 15px;
+}
+.role-text {
+  color: #ffffff;
+  font-size: 10px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  margin-bottom: 0px;
+  padding-top: 11px;
+}
+.star-img {
+  font-size: 12px;
+  border: none;
+  color: #fbbf24;
+}
+.job-rating {
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'Roboto';
+  margin-left: 4px;
+
+  align-self: flex-start;
+  margin-top: 0px;
+}
+.rating-container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 0px;
+ 
+}
+.role-container {
+  display: flex;
+  flex-direction: column;
+}
+.upper-part {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+.map {
+  color: #ffffff;
+  font-size: 10px;
+  margin-left: 10px;
+}
+.location {
+  color: #ffffff;
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.salary-container {
+  display: flex;
+  align-items: center;
+}
+.salary {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.salaries {
+  display: flex;
+  justify-content: space-between;
+}
+.line1 {
+  border: 1px solid #cbd5e1;
+  margin: 10px;
+}
+.text {
+  color: #cbd5e1;
+  font-size: 10px;
+  font-family: 'Roboto';
+  margin-left: 10px;
+}
+.description {
+  color: #cbd5e1;
+  font-size: 10px;
+  font-family: 'Roboto';
+  margin-left: 10px;
+}
+.specific-job-link {
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 15px;
+  }
+  .description {
+    font-size: 15px;
+  }
+  .job-url {
+    height: 50px;
+    width: 50px;
+    border-radius: 4px;
+    margin-right: 15px;
+  }
+  .role-text {
+    font-size: 15px;
+  }
+  .star-img {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .job-rating {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .map {
+    font-size: 15px;
+    margin-left: 15px;
+  }
+
+  .location {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+  .salary {
+    font-size: 13px;
+  }
+}

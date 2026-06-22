@@ -1,0 +1,231 @@
+.jobs-container {
+  background-color: #272727;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.search-input {
+  border: 1px solid #64748b;
+  background-color: transparent;
+  height: 30px;
+  width: 90%;
+  padding-left: 8px;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: none;
+  color: #ffffff;
+}
+.search-icon {
+  height: 15px;
+  width: 20px;
+  color: #ffffff;
+  opacity: 1;
+}
+.search-button {
+  border: 1px solid #64748b;
+  background-color: #475569;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.search-container1 {
+  display: none;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 90%;
+
+  margin: auto;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+.profile-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  height: 150px;
+  width: 90%;
+  border-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 15px;
+
+  align-self: center;
+  margin: auto;
+}
+
+.profile-img {
+  height: 40px;
+  width: 40px;
+  margin-top: 13px;
+}
+.profile-name {
+  color: #4f46e5;
+  font-size: 13px;
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+.role {
+  color: #64748b;
+  font-size: 10px;
+  font-family: 'Roboto';
+}
+.retry-btn {
+  color: #ffffff;
+  font-size: 14px;
+  font-family: 'Roboto';
+  background-color: #4f46e5;
+  height: 30px;
+  width: 80px;
+  border: none;
+  outline: none;
+}
+.retry-btn1 {
+  color: #ffffff;
+  font-size: 14px;
+  font-family: 'Roboto';
+  background-color: #6366f1;
+  height: 30px;
+  width: 80px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.button-container {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+.loader-container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+.line {
+  border: 1px solid #7e858e;
+  width: 90%;
+}
+.employ-type {
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'Roboto';
+  padding-left: 35px;
+  margin-bottom: 0px;
+}
+.jobs-list-container1 {
+  padding-left: 0px;
+}
+.list-type {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.checkbox {
+  height: 15px;
+  width: 15px;
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+}
+.label {
+  color: #ffffff;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.input-list {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  height: 30px;
+  padding-left: 35px;
+}
+.jobs-list-container {
+  width: 90%;
+  align-self: center;
+}
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.failure-img {
+  height: 200px;
+  width: 200px;
+}
+.failure-heading {
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'Roboto';
+  font-weight: bold;
+}
+.failure-text {
+  color: #cbd5e1;
+  font-size: 10px;
+  font-family: 'Roboto';
+}
+@media screen and (min-width: 768px) {
+  .profile-section {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+  .jobs-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .profile-container {
+    height: 180px;
+    width: 90%;
+    border-radius: 20px;
+    align-self: center;
+  }
+  .button-container {
+    width: 100%;
+  }
+  .line {
+    width: 95%;
+  }
+  .loader-container {
+    width: 100%;
+  }
+  .employ-type {
+    font-size: 15px;
+  }
+  .label {
+    font-size: 16px;
+  }
+  .search-container {
+    display: none;
+  }
+  .search-container1 {
+    display: flex;
+    align-items: center;
+
+    height: 30px;
+    width: 90%;
+
+    margin-bottom: 10px;
+  }
+  .jobs-list-container {
+    width: 60%;
+    align-self: flex-start;
+  }
+  .failure-img {
+    height: 300px;
+    width: 300px;
+  }
+  .failure-heading {
+    font-size: 30px;
+  }
+}
