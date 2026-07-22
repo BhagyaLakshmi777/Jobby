@@ -70,6 +70,7 @@ class Jobs extends Component {
     minimum_package: '1000000',
     employment_type: [],
     apiJobStatus: apiJobConstants.initial,
+    location: [],
   }
 
   componentDidMount() {
@@ -83,11 +84,13 @@ class Jobs extends Component {
       minimum_package,
       employment_type,
       apiJobStatus,
+      location,
+      jobsList,
     } = this.state
     const employmentType = employment_type.join(',')
     this.setState({apiJobStatus: apiJobConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
-    const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minimum_package}&search=${searchInput}`
+    const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minimum_package}&search=${searchInput} `
     const options = {
       method: 'GET',
       headers: {
@@ -99,7 +102,22 @@ class Jobs extends Component {
     if (response.ok === true) {
       const jobsData = await response.json()
       const {jobs} = jobsData
-      this.setState({jobsList: jobs, apiJobStatus: apiJobConstants.success})
+      if (location.length === 0) {
+        this.setState({jobsList: jobs, apiJobStatus: apiJobConstants.success})
+      } else {
+        let filterJobsList = []
+        for (let i of location) {
+          for (let j of jobs) {
+            if (j.location === i) {
+              filterJobsList.push(j)
+            }
+          }
+        }
+        this.setState({
+          jobsList: filterJobsList,
+          apiJobStatus: apiJobConstants.success,
+        })
+      }
     } else {
       this.setState({apiJobStatus: apiJobConstants.failure})
     }
@@ -180,7 +198,8 @@ class Jobs extends Component {
   }
 
   renderJobsSuccess = () => {
-    const {jobsList} = this.state
+    const {jobsList, location} = this.state
+
     if (jobsList.length === 0) {
       return (
         <div className="failure-container">
@@ -270,9 +289,26 @@ class Jobs extends Component {
       this.setState({employment_type}, this.getJobsList)
     }
   }
+  onChangeLocation = event => {
+    const {location, jobsList} = this.state
+    let filterLocation = []
+    const isExists = location.includes(event.target.value)
+
+    if (isExists) {
+      filterLocation = location.filter(each => each !== event.target.value)
+
+      this.setState({location: filterLocation}, this.getJobsList)
+    } else {
+      location.push(event.target.value)
+      const newLocation = location
+      this.setState({location: newLocation}, this.getJobsList)
+    }
+  }
 
   render() {
     const {jobsList, searchInput, employment_type} = this.state
+    console.log(jobsList)
+
     return (
       <>
         <Header />
@@ -318,6 +354,70 @@ class Jobs extends Component {
                   onSalaryChange={this.onSalaryChange}
                 />
               ))}
+            </ul>
+            <hr className="line" />
+            <h1 className="employ-type">Location</h1>
+            <ul className="list-type">
+              <li className="input-list">
+                <input
+                  type="checkbox"
+                  className="loc-checkbox"
+                  id="HYDERABAD"
+                  value="Hyderabad"
+                  onChange={this.onChangeLocation}
+                />
+                <label htmlFor="HYDERABAD" className="loc-label">
+                  Hyderabad
+                </label>
+              </li>
+              <li className="input-list">
+                <input
+                  type="checkbox"
+                  className="loc-checkbox"
+                  id="BANGALORE"
+                  value="Bangalore"
+                  onChange={this.onChangeLocation}
+                />
+                <label htmlFor="BANGALORE" className="loc-label">
+                  Bangalore
+                </label>
+              </li>
+              <li className="input-list">
+                <input
+                  type="checkbox"
+                  className="loc-checkbox"
+                  id="CHENNAI"
+                  value="Chennai"
+                  onChange={this.onChangeLocation}
+                />
+                <label htmlFor="CHENNAI" className="loc-label">
+                  Chennai
+                </label>
+              </li>
+              <li className="input-list">
+                <input
+                  type="checkbox"
+                  className="loc-checkbox"
+                  id="DELHI"
+                  value="Delhi"
+                  onChange={this.onChangeLocation}
+                />
+                <label htmlFor="DELHI" className="loc-label">
+                  Delhi
+                </label>
+              </li>
+              <li className="input-list">
+                <input
+                  type="checkbox"
+                  className="loc-checkbox"
+                  id="MUMBAI"
+                  value="Mumbai"
+                  onChange={this.onChangeLocation}
+                />
+                <label htmlFor="MUMBAI" className="loc-label">
+                  Mumbai
+                </label>
+              </li>
             </ul>
           </div>
           <div className="jobs-list-container">

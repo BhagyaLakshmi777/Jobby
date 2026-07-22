@@ -7,15 +7,15 @@ const EmploymentType = props => {
     onEmploymentChange(event.target.value, event.target.checked)
   }
   return (
-    <li className="input-list">
+    <li className='input-list'>
       <input
-        className="checkbox"
+        className='checkbox'
         id={employmentTypeId}
-        type="checkbox"
+        type='checkbox'
         value={employmentTypeId}
         onChange={onChangeEmployment}
       />
-      <label className="label" htmlFor={employmentTypeId}>
+      <label className='label' htmlFor={employmentTypeId}>
         {label}
       </label>
     </li>

@@ -29,7 +29,6 @@
   .logo {
     height: 40px;
     width: 90px;
-
     margin-left: 30px;
   }
   .icon-container {
@@ -45,14 +44,19 @@
   .menu {
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
+
+    align-items: center;
+    
+    padding-left: 0px;
+    width: 700px;
   }
   .list-item {
     color: #f8fafc;
     font-size: 13px;
     font-weight: 500;
-    margin-left: 20px;
     text-decoration: none;
+    
+    margin-left: 15px;
   }
   .log-btn {
     color: #f8fafc;
@@ -64,5 +68,8 @@
     border-radius: 5px;
     border: none;
     outline: none;
+  }
+  .last-item{
+    margin-left:auto;
   }
 }

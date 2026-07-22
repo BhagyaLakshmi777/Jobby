@@ -3,6 +3,7 @@
   padding-top: 10px;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 .search-input {
   border: 1px solid #64748b;
@@ -36,13 +37,19 @@
 .search-container1 {
   display: none;
 }
+.loc-label {
+  color: #ffffff;
+  font-size: 28px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  margin-left: 10px;
+}
 .search-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 30px;
   width: 90%;
-
   margin: auto;
   margin-bottom: 10px;
   padding-left: 20px;
@@ -57,7 +64,6 @@
   padding: 15px;
 
   align-self: center;
-  margin: auto;
 }
 
 .profile-img {
@@ -148,6 +154,12 @@
   height: 30px;
   padding-left: 35px;
 }
+.location-list-type {
+  list-style-type: none;
+}
+.loc-label {
+  font-size: 15px;
+}
 .jobs-list-container {
   width: 90%;
   align-self: center;
@@ -172,13 +184,14 @@
   font-size: 10px;
   font-family: 'Roboto';
 }
+.loc-checkbox {
+}
 @media screen and (min-width: 768px) {
   .profile-section {
     width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100vh;
   }
   .jobs-container {
     display: flex;

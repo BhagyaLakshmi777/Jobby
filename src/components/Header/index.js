@@ -21,47 +21,47 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="header-container">
-        <Link to="/">
+      <nav className='header-container'>
+        <Link to='/'>
           <img
-            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-            alt="website logo"
-            className="logo"
+            src='https://assets.ccbp.in/frontend/react-js/logo-img.png'
+            alt='website logo'
+            className='logo'
           />
         </Link>
-        <ul className="icon-container">
+        <ul className='icon-container'>
           <li>
-            <Link to="/">
-              <AiFillHome size="20" color="white" />
+            <Link to='/'>
+              <AiFillHome size='20' color='white' />
             </Link>
           </li>
           <li>
-            <Link to="/jobs">
-              <BsFillBriefcaseFill size="20" color="white" />
+            <Link to='/jobs'>
+              <BsFillBriefcaseFill size='20' color='white' />
             </Link>
           </li>
           <li>
-            <button className="logOut-btn" onClick={this.onClickLogout}>
-              <FiLogOut size="20" color="white" />
+            <button className='logOut-btn' onClick={this.onClickLogout}>
+              <FiLogOut size='20' color='white' />
             </button>
           </li>
         </ul>
-        <div className="links-container">
-          <ul className="menu">
+        <div className='links-container'>
+          <ul className='menu'>
             <li>
-              <Link to="/" className="list-item">
+              <Link to='/' className='list-item'>
                 Home
               </Link>
             </li>
             <li>
-              <Link className="list-item" to="/jobs">
+              <Link className='list-item' to='/jobs'>
                 Jobs
               </Link>
             </li>
-            <li>
+            <li className='last-item'>
               <button
-                type="button"
-                className="log-btn"
+                type='button'
+                className='log-btn'
                 onClick={this.onClickLogout}
               >
                 Logout
