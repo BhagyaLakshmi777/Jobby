@@ -38,20 +38,31 @@ class JobItemDetails extends Component {
     const response = await fetch(`https://apis.ccbp.in/jobs/${id}`, options)
     const data = await response.json()
     if (response.ok === true) {
-      const {job_details, similar_jobs} = data
+      const jobDetails = data.job_details
+      const similarJobs = data.similar_jobs
+      const similarJobs1 = similarJobs.map(each => ({
+        id: each.id,
+        companyLogoUrl: each.company_logo_url,
+        employmentType: each.employment_type,
+        jobDescription: each.job_description,
+        location: each.location,
+        rating: each.rating,
+        title: each.title,
+      }))
+
       const updateDetails = {
-        companyLogoUrl: job_details.company_logo_url,
-        companyWebsiteUrl: job_details.company_website_url,
-        employmentType: job_details.employment_type,
-        id: job_details.id,
-        jobDescription: job_details.job_description,
-        lifeAtCompany: job_details.life_at_company,
-        location: job_details.location,
-        packagePerAnnum: job_details.package_per_annum,
-        rating: job_details.rating,
-        skills: job_details.skills,
-        title: job_details.title,
-        similarJobs: data.similar_jobs,
+        companyLogoUrl: jobDetails.company_logo_url,
+        companyWebsiteUrl: jobDetails.company_website_url,
+        employmentType: jobDetails.employment_type,
+        id: jobDetails.id,
+        jobDescription: jobDetails.job_description,
+        lifeAtCompany: jobDetails.life_at_company,
+        location: jobDetails.location,
+        packagePerAnnum: jobDetails.package_per_annum,
+        rating: jobDetails.rating,
+        skills: jobDetails.skills,
+        title: jobDetails.title,
+        similarJobs: similarJobs1,
       }
 
       this.setState({

@@ -10,11 +10,11 @@ const SpecificJob = props => {
     id,
     title,
     rating,
-    company_logo_url,
+    companyLogoUrl,
     location,
-    employment_type,
-    job_description,
-    package_per_annum,
+    employmentType,
+    jobDescription,
+    packagePerAnnum,
   } = jobDetails
 
   return (
@@ -22,11 +22,7 @@ const SpecificJob = props => {
       <div className="specific-job-container">
         <div className="upper-part">
           <div className="job-url">
-            <img
-              src={company_logo_url}
-              alt="company logo"
-              className="job-logo"
-            />
+            <img src={companyLogoUrl} alt="company logo" className="job-logo" />
           </div>
           <div className="role-container">
             <h1 className="role-text">{title}</h1>
@@ -41,13 +37,13 @@ const SpecificJob = props => {
             <FaMapMarkerAlt className="map" />
             <p className="location">{location}</p>
             <BsFillBriefcaseFill className="map" />
-            <p className="location">{employment_type}</p>
+            <p className="location">{employmentType}</p>
           </div>
-          <p className="salary">{package_per_annum}</p>
+          <p className="salary">{packagePerAnnum}</p>
         </div>
         <hr className="line1" />
         <h1 className="text">Description</h1>
-        <p className="description">{job_description}</p>
+        <p className="description">{jobDescription}</p>
       </div>
     </Link>
   )

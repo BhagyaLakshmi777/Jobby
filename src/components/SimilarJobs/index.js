@@ -6,9 +6,9 @@ const SimilarJobs = props => {
   const {similarDetails} = props
   const {
     id,
-    company_logo_url,
-    employment_type,
-    job_description,
+    companyLogoUrl,
+    employmentType,
+    jobDescription,
     location,
     rating,
     title,
@@ -18,7 +18,7 @@ const SimilarJobs = props => {
       <div className="upper-part">
         <div className="job-url">
           <img
-            src={company_logo_url}
+            src={companyLogoUrl}
             className="job-logo"
             alt="similar job company logo"
           />
@@ -32,12 +32,12 @@ const SimilarJobs = props => {
         </div>
       </div>
       <h1 className="text">Description</h1>
-      <p className="description">{job_description}</p>
+      <p className="description">{jobDescription}</p>
       <div className="salary-container">
         <FaMapMarkerAlt className="map" />
         <p className="location">{location}</p>
         <BsFillBriefcaseFill className="map" />
-        <p className="location">{employment_type}</p>
+        <p className="location">{employmentType}</p>
       </div>
     </li>
   )

@@ -2,10 +2,15 @@ import './index.css'
 
 const Skill = props => {
   const {skillDetails} = props
-  const {image_url, name} = skillDetails
+
+  const skills1 = {
+    imageUrl: skillDetails.image_url,
+    name: skillDetails.name,
+  }
+  const {imageUrl, name} = skills1
   return (
     <li className="skill-list-item">
-      <img src={image_url} alt={name} className="skill-img" />
+      <img src={imageUrl} alt={name} className="skill-img" />
       <p className="skill-name">{name}</p>
     </li>
   )

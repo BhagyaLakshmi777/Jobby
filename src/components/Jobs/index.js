@@ -1,12 +1,10 @@
+import Loader from 'react-loader-spinner'
 import {Component} from 'react'
-
-import Header from '../Header'
 
 import Cookies from 'js-cookie'
 import {BsSearch} from 'react-icons/bs'
+import Header from '../Header'
 import './index.css'
-
-import Loader from 'react-loader-spinner'
 
 import SpecificJob from '../SpecificJob'
 import SalaryRange from '../SalaryRange'
@@ -67,8 +65,8 @@ class Jobs extends Component {
     profileObject: {},
     jobsList: [],
     searchInput: '',
-    minimum_package: '1000000',
-    employment_type: [],
+    minimumPackage: '1000000',
+    employmentType: [],
     apiJobStatus: apiJobConstants.initial,
     location: [],
   }
@@ -81,16 +79,16 @@ class Jobs extends Component {
   getJobsList = async () => {
     const {
       searchInput,
-      minimum_package,
-      employment_type,
+      minimumPackage,
+      employmentType,
       apiJobStatus,
       location,
       jobsList,
     } = this.state
-    const employmentType = employment_type.join(',')
+    const employmentType1 = employmentType.join(',')
     this.setState({apiJobStatus: apiJobConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
-    const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType}&minimum_package=${minimum_package}&search=${searchInput} `
+    const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType1}&minimum_package=${minimumPackage}&search=${searchInput} `
     const options = {
       method: 'GET',
       headers: {
@@ -102,17 +100,23 @@ class Jobs extends Component {
     if (response.ok === true) {
       const jobsData = await response.json()
       const {jobs} = jobsData
+      const jobs1 = jobs.map(each => ({
+        id: each.id,
+        title: each.title,
+        rating: each.rating,
+        companyLogoUrl: each.company_logo_url,
+        location: each.location,
+        employmentType: each.employment_type,
+        jobDescription: each.job_description,
+        packagePerAnnum: each.package_per_annum,
+      }))
       if (location.length === 0) {
         this.setState({jobsList: jobs, apiJobStatus: apiJobConstants.success})
       } else {
-        let filterJobsList = []
-        for (let i of location) {
-          for (let j of jobs) {
-            if (j.location === i) {
-              filterJobsList.push(j)
-            }
-          }
-        }
+        const filterJobsList = jobs.filter(job =>
+          location.includes(job.location),
+        )
+
         this.setState({
           jobsList: filterJobsList,
           apiJobStatus: apiJobConstants.success,
@@ -137,8 +141,8 @@ class Jobs extends Component {
 
     if (response.ok === true) {
       const profileData = await response.json()
-      const {profile_details} = profileData
-      const profileDetails = profile_details
+
+      const profileDetails = profileData.profile_details
       const updatedObject = {
         profileImageUrl: profileDetails.profile_image_url,
         name: profileDetails.name,
@@ -260,6 +264,8 @@ class Jobs extends Component {
         return this.renderJobsFailure()
       case apiJobConstants.inProgress:
         return this.renderJobsLoading()
+      default:
+        return null
     }
   }
 
@@ -274,21 +280,22 @@ class Jobs extends Component {
   }
 
   onSalaryChange = id => {
-    this.setState({minimum_package: id}, this.getJobsList)
+    this.setState({minimumPackage: id}, this.getJobsList)
   }
 
   onEmploymentChange = (value, boolValue) => {
-    const {employment_type} = this.state
-    const isPresent = employment_type.includes(value)
+    const {employmentType} = this.state
+    const isPresent = employmentType.includes(value)
     if (isPresent) {
-      const filterData = employment_type.filter(each => each !== value)
+      const filterData = employmentType.filter(each => each !== value)
 
-      this.setState({employment_type: filterData}, this.getJobsList)
+      this.setState({employmentType: filterData}, this.getJobsList)
     } else {
-      employment_type.push(value)
-      this.setState({employment_type}, this.getJobsList)
+      employmentType.push(value)
+      this.setState({employmentType}, this.getJobsList)
     }
   }
+
   onChangeLocation = event => {
     const {location, jobsList} = this.state
     let filterLocation = []
@@ -306,8 +313,7 @@ class Jobs extends Component {
   }
 
   render() {
-    const {jobsList, searchInput, employment_type} = this.state
-    console.log(jobsList)
+    const {jobsList, searchInput, employmentType} = this.state
 
     return (
       <>

@@ -1,10 +1,10 @@
 import {Component} from 'react'
 
+import {Link} from 'react-router-dom'
+
 import Header from '../Header'
 
 import './index.css'
-
-import {Link} from 'react-router-dom'
 
 class Home extends Component {
   render() {
